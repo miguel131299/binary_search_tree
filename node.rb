@@ -1,22 +1,19 @@
 class Node
     include Comparable
 
-    attr_accessor :value, :left, :right
+    attr_accessor :left, :right, :data
 
-    def initialize(value, left = nil, right = nil)
-        @value = value
-        @left = left
-        @right = right
+    def initialize(data)
+        @data = data
+        @left = nil
+        @right = nil
     end
 
     def <=>(other_node)
-        if other_node == nil
-            return false
-        end
-        @value <=> other_node.value
+        @value <=> other_node.data
     end
 
     def to_s
-        "#{value}"
+        "#{@data} #{left.data} #{right.data}"
     end
 end
